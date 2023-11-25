@@ -2,22 +2,25 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Calendar from './components/Calendar.jsx'
 import './index.css'
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createHashRouter, RouterProvider} from "react-router-dom";
 import Summary from "./components/Summary.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
-        element: <Calendar />,
+        element: <Calendar/>,
     },
     {
         path: "/summary",
-        element: <Summary />
+        element: <Summary/>
+    },
+    {
+        basename: '/very-simple-cra'
     }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>,
 )
